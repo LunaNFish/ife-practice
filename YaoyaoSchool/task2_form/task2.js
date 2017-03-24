@@ -1,4 +1,4 @@
-var $ = function(id){
+﻿var $ = function(id){
 				return document.getElementById(id);
 			}
 			var $$ = function(tagname){
@@ -170,7 +170,6 @@ var $ = function(id){
 			}
 			
 			$("submit").onclick = function (){
-				alert(m);
 					if(m>4){
 						alert("提交成功！");
 					}else{
