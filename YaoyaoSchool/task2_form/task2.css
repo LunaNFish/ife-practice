@@ -1,0 +1,29 @@
+body{
+				font-family: "黑体";
+				line-height: 30px;
+			}
+			.input-box{
+				margin-left: 33px;
+			}
+			input{
+				border-radius: 5px;
+				border:1px #C7C7C7 solid;
+				height: 20px;
+				width: 150px;
+			}
+			span{
+				font-family: "微软雅黑";
+				color: #CCCCCC;
+				font-size: 12px;
+				margin-left: 85px;
+			}
+			button{
+				color: white;
+				background-color: #46B8DA;
+				height: 30px;
+				width: 80px;
+				border: 0;
+				border-radius: 5px;
+				margin-left: 150px;
+				margin-top: 20px;
+			}
