@@ -1,0 +1,48 @@
+﻿body{
+ margin: 0;
+ padding: 0;
+ }
+.a, .b, .c, .d{
+ width: 150px;
+ margin-right: 10px;
+ border: 1px solid;
+ border-color: red;
+ margin-bottom: 20px;
+ }
+.a{
+ height: 120px;
+ }
+.b{
+ height: 100px;
+ }
+.c{
+ height: 40px;
+ }
+.d{
+ height: 200px;
+ border-color: blue;
+ margin-right: 10px;
+ }
+.box{
+ display: flex;
+ flex-flow: row wrap;
+ padding: 0px;
+ }
+ 
+@media only screen and (max-width: 640px) {
+ p:after{
+ content: "此时屏幕小于640px";
+ }
+ .d{
+ order: -1;
+ }
+ }
+
+@media only screen and (min-width: 641px) {
+ p:after{
+ content: "此时屏幕大于640px";
+ }
+.box{
+ align-items:center;
+ }
+ }

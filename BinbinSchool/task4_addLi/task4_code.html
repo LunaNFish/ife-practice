@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.number{
+				width: 400px;
+				height: 50px;
+			}
+			.number ul{
+				list-style-type: none;
+				margin-left: 0;
+				padding-left: 10px;
+			}
+			.number ul li{
+				background-color: red;
+				float: left;
+				margin-right: 10px;
+				padding: 10px;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="num_input"/>
+			<button id="leftIn" onclick="leftIn()">左侧入</button>
+			<button id="rightIn" onclick="rightIn()">右侧入</button>
+			<button id="leftOut" onclick="leftOut()">左侧出</button>
+			<button id="rightOut" onclick="rightOut()">右侧出</button>
+		</div>
+		<div class="number">
+			<ul id="store">
+				<li>12</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+		var b = document.getElementById("store");
+		
+			function leftIn(){
+				var a = document.getElementById("num_input").value;
+				if(!isNaN(a)){
+					var li = document.createElement("li");
+					li.innerHTML = a;
+					b.insertBefore(li,b.firstChild);
+				}else{
+					alert("请输入合法数字");
+					document.getElementById("num_input").value="";
+				}
+				
+			}
+			
+			function rightIn(){
+				var a = document.getElementById("num_input").value;
+				if(!isNaN(a)){
+					var li= document.createElement("li");  
+					b.appendChild(li).append(a);
+				}else{
+					alert("请输入合法数字");
+					document.getElementById("num_input").value="";
+				}
+			}
+			
+			function leftOut(){
+				b.removeChild(b.firstChild);
+			}
+			
+			function rightOut(){
+				b.removeChild(b.lastChild);
+			}
+		</script>
+	</body>
+</html>

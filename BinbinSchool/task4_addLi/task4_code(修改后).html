@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.number{
+				width: 400px;
+				height: 50px;
+			}
+			.number ul{
+				list-style-type: none;
+				margin-left: 0;
+				padding-left: 10px;
+			}
+			.number ul li{
+				background-color: red;
+				float: left;
+				margin-right: 10px;
+				padding: 10px;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="num_input"/>
+			<button id="leftIn" onclick="leftIn()">左侧入</button>
+			<button id="rightIn" onclick="rightIn()">右侧入</button>
+			<button id="leftOut" onclick="leftOut()">左侧出</button>
+			<button id="rightOut" onclick="rightOut()">右侧出</button>
+		</div>
+		<div class="number">
+			<ul id="store" class="ct">
+				<li>12</li>
+			</ul>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+		var b = document.getElementById("store");
+		function createItem(){
+			var item= document.createElement("li"); 
+			var num = document.getElementById("num_input").value;
+			if(!isNaN(num)){
+				item.innerText = num;	
+				return item;
+			}else{
+				alert("请输入合法的数字");
+				document.getElementById("num_input").value = "";
+				return false;
+			}
+			
+		}
+		
+			function leftIn(){
+				var item = createItem();
+				var firstNode = b.querySelectorAll("li")[0];
+				b.insertBefore(item,firstNode);
+				document.getElementById("num_input").value = "";
+			}
+			
+			function rightIn(){
+				var item = createItem();
+				var lastNode = b.querySelectorAll("li")[b.querySelectorAll("li").length];
+				b.insertBefore(item,lastNode);
+				document.getElementById("num_input").value = "";
+			}
+			
+			function leftOut(){
+				var outL = b.querySelectorAll("li")[0];
+				var outLNum = outL.innerText;
+				b.removeChild(outL);
+				alert(outLNum);
+			}
+			
+			function rightOut(){
+				var outR = b.querySelectorAll("li")[b.querySelectorAll("li").length-1];
+				var outRNum = outR.innerText;
+				b.removeChild(outR);
+				alert(outRNum);
+			}
+			  var ct = document.querySelector(".ct");
+			  
+			  ct.addEventListener('click',function(e){
+			     if(e.target && e.target.nodeName=='LI'){
+			       ct.removeChild(e.target);
+			     }
+			  })
+
+		</script>
+	</body>
+</html>

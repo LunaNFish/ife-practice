@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		   .container{
+		   		margin: 5% 8%;
+
+		   }
+			.node{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				flex-flow: row wrap;
+				border:1px dashed #c9c9c9;
+				padding: 30px 20px;
+				flex-grow:1;
+				border-radius: 8px;
+			}
+			.left{
+				margin-right:10px;
+			}
+			button{
+				width: 24%;
+				height: 50px;
+				border: 0;
+				border-radius: 8px;
+				color: white;
+				font-family: "黑体";
+				font-size: 16px;
+				
+			}
+			#btn1{
+				background-color: coral;
+			}
+			#btn2{
+				background-color:#43B29F;
+			}
+			
+			#btn3{
+				background-color: #269ABC;
+			}
+			#btn4{
+				background-color: #E1CD46;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container node father">
+			<div class="node node-1-left left">
+				<div class="node node-2-left left">
+					<div class="node node-3-left left">
+						
+					</div>
+					<div class="node node-3-right right">
+						
+					</div>
+				</div>
+				<div class="node node-2-right right">
+					<div class="node node-3-left left">
+						
+					</div>
+					<div class="node node-3-right right">
+						
+					</div>
+				</div>
+			</div>
+			<div class="node node-1-left">
+					<div class="node node-2-left left">
+					<div class="node node-3-left left">
+						
+					</div>
+					<div class="node node-3-right right">
+						
+					</div>
+				</div>
+				<div class="node node-2-right right">
+					<div class="node node-3-left left">
+						
+					</div>
+					<div class="node node-3-right right">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<button id="btn1" onclick="preOrder()">前序</button>
+			<button id="btn2" onclick="rootOrder()">中序</button>
+			<button id="btn3" onclick="backOrder()">后序</button>
+			<button id="btn4" onclick="stop()">停止</button>
+		</div>
+		<script type="text/javascript">
+			var i;
+			var data = new Array();
+			var timer;
+			var father;
+			function getId(e){
+				return document.getElementById(e);
+			}
+			function getFather(e){
+				return document.querySelector(e);
+			}
+			function getList(e){
+				return document.querySelectorAll(e);
+			}
+			father = getFather(".father");
+			
+			function reset(){
+				data = [];
+				clearInterval(timer);
+				var showDiv = getList("div");
+				for(i = 0; i < showDiv.length; i++){
+					showDiv[i].style.backgroundColor = "#fff";
+				}
+			}
+			function pre(e){
+				if(e!=null){
+					data.push(e);
+					pre(e.firstElementChild);
+					pre(e.lastElementChild);
+				}
+			}
+			function root(e){
+				if(e!=null){
+					root(e.firstElementChild);
+					data.push(e);
+					root(e.lastElementChild);
+				}
+			}
+			function back(e){
+				if(e!=null){
+					back(e.firstElementChild);
+					back(e.lastElementChild);
+					data.push(e);
+				}
+			}
+			function render(){
+				i = 0;
+				var color = new Array();
+				for(var j = 0; j < 15; j = j+4){
+					color.push("coral");
+					color.push("#269ABC");
+					color.push("#43B29F");
+					color.push("#E1CD46");
+				}
+				data[i].style.backgroundColor = "coral";
+				timer = setInterval(function(){
+					data[i].style.backgroundColor = "#fff";
+					i++;
+					if(i<data.length){
+						data[i].style.backgroundColor = color[i];
+						
+					}else{
+						clearInterval(timer);
+					}					
+				},500)
+			}
+			function preOrder(){
+				reset();
+				pre(father);
+				render();
+			}
+			function rootOrder(){
+				reset();
+				root(father);
+				render();
+			}
+			function backOrder(){
+				reset();
+				back(father);
+				render();
+			}
+			function stop(){
+				clearInterval(timer);
+				reset();
+			}
+		</script>
+	</body>
+</html>

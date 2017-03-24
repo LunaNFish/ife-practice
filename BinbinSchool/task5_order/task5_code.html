@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.number{
+				width: 400px;
+				height: 50px;
+			}
+			
+			.number ul{
+				list-style-type: none;
+				margin-left: 0;
+				padding-left: 10px;
+				height: 120px;
+				display: flex;
+				align-items: flex-end ;
+			}
+			
+			.number ul li{
+				background-color: red;
+				margin-right: 3px;
+				color: white;
+				width: 20px;
+				height: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="num_input"/>
+			<button id="leftIn" onclick="leftIn()">左侧入</button>
+			<button id="rightIn" onclick="rightIn()">右侧入</button>
+			<button id="leftOut" onclick="leftOut()">左侧出</button>
+			<button id="rightOut" onclick="rightOut()">右侧出</button>
+			<button id="sort-li" onclick="sortLi()">排序</button>
+		</div>
+		<div class="number">
+			<ul id="store" class="ct">
+			</ul>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+		var b = document.getElementById("store");
+		function createItem(){
+			var item= document.createElement("li"); 
+			var num = document.getElementById("num_input").value;
+			if(num>=10 && num <=100){
+				if(b.children.length<=60){
+					var parentHeight = b.offsetHeight;
+					var martop = parentHeight - num;
+					item.style.setProperty('height', num+'px', 'important');
+				/*	item.style.setProperty('margin-top', martop + 'px', 'important');*/
+					return item;
+				}
+				else{
+					alert("最多限制为60条数据");
+				}
+			}else{
+				alert("请输入10-100的数字");
+				document.getElementById("num_input").value = "";
+				return false;
+			}
+			
+		}
+		
+			function leftIn(){
+				var item = createItem();
+				var firstNode = b.querySelectorAll("li")[0];
+				b.insertBefore(item,firstNode);
+				document.getElementById("num_input").value = "";
+			}
+			
+			function rightIn(){
+				var item = createItem();
+				var lastNode = b.querySelectorAll("li")[b.querySelectorAll("li").length];
+				b.insertBefore(item,lastNode);
+				document.getElementById("num_input").value = "";
+			}
+			
+			function leftOut(){
+				var outL = b.querySelectorAll("li")[0];
+				var outLNum = outL.innerText;
+				b.removeChild(outL);
+				alert(outLNum);
+			}
+			
+			function rightOut(){
+				var outR = b.querySelectorAll("li")[b.querySelectorAll("li").length-1];
+				var outRNum = outR.innerText;
+				b.removeChild(outR);
+				alert(outRNum);
+			}
+			  var ct = document.querySelector(".ct");
+			  
+			  ct.addEventListener('click',function(e){
+			     if(e.target && e.target.nodeName=='LI'){
+			       ct.removeChild(e.target);
+			     }
+			  })
+			 
+			 function sortLi(){
+			 	//ist为一个数组，需要定义
+				var liHeight = new Array();
+				var len = b.children.length;
+				//取数组里面的数值时，需要用到for循环
+				for(var i = 0; i < len; i++){
+					//.querySelect(‘子元素’) 默认获得父元素里面第一个子元素
+					//.querySelectAll(‘子元素’) 可以获得父元素里面全部的子元素
+					//offsetHeight 是取得元素高度
+					liHeight[i] = b.querySelectorAll("li")[i].offsetHeight;
+				}			
+				Sort(liHeight,len);
+				for(var i = 0;i < len; i++){
+					//。style.setProperty()可以修改元素的样式
+					 b.querySelectorAll("li")[i].style.setProperty("height",liHeight[i]+"px","important");
+				}
+			}
+			 
+			 
+			 /*冒泡排序*/
+	/*		
+	 * function swap(items, firstIndex, secondIndex){
+				var temp = items[firstIndex];
+				items[firstIndex] = items[secondIndex];
+				items[secondIndex] = temp;
+			}
+			
+			function Sort(items,len){
+				var i, j, stop;
+				for(i = 0; i < len; i++){
+					for(j = 0, stop = len-i; j < stop; j++){
+						if(items[j] > items[j+1]){
+							swap(items, j, j+1);
+						}
+					}
+				}
+				return items;
+			}*/
+			
+			/*选择排序*/
+			/*
+			 * function swap(items, firstIndex, secondIndex){
+				var temp = items[firstIndex];
+				items[firstIndex] = items[secondIndex];
+				items[secondIndex] = temp;
+			}
+			
+			 * function Sort(items,len){
+				 for (var i = 0; i < len; i++){
+				    min = i;
+				    for(var j = i + 1; j < len; j++){
+				      if(items[j] < items[min]){
+				        min = j;
+				      }
+				    }
+				    
+				    if( i != min){
+				      swap(items, i, min);
+				    }
+			}
+				}*/
+				
+				/*插入排序*/
+				function Sort(items,len) {
+					  var value, i, j;  
+					  for (i = 0; i < len; i++) {
+					    value = items[i];
+					    for (j = i-1; j > -1 && items[j] > value; j--) {
+					      items[j+1] = items[j];    }
+					    items[j+1] = value;
+					  }
+					  return items;
+					};
+
+		</script>
+	</body>
+</html>

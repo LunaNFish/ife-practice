@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="blog.css">
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".boxnav").click(function(){
+					$(this).addClass("active");
+					 $(this).parent().children().not($(this)).removeClass('active');
+				});
+				$("td").hover(function(){
+					$(this).css("background-color","#F5F6F8");
+				},function(){
+					$(this).css("background-color","white");
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<nav>
+			<nav class="navbar navbar-default" >
+				<div class="navImg">
+					<img src="img/sqare12.png">
+				</div>
+				<div class="search">
+					<input type="text" />
+					<img src="img/login2.png"> <span>登录</span>
+				</div>
+			</nav>
+		</nav>
+		<div class="contain">
+				<div class="left">
+					<div class="header">
+						<div class="headImg">
+							<img src="img/header.jpg" height="100px" class="img-circle">
+						</div>
+						<div class="headerText">
+							<div class="fans">
+								<p>101</p>
+								<p>收藏</p>
+							</div>
+							<div class="line1"></div>
+							<div class="fans">
+								<p>313</p>
+								<p>粉丝</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="menu">
+						<ul class="ul1">
+							<li><a href="#"><img src="img/blog/form.png">个人报表</a>
+								<ul class="ul2">
+									<li><a href="#">
+										<img src="img/blog/drop1.png">
+										<img src="img/blog/file3.png"> 文件一
+									</a></li>
+									<li><a href="#" style="color: #ededef;">
+										<img src="img/blog/drop2.png">
+										<img src="img/blog/file.png">
+										文件二
+									</a>
+										<ul class="ul3">
+											<li><a href="#" style="color: #ededef;">
+												<img src="img/blog/doc1.png" >
+												文档1
+											</a></li>
+											<li>
+												<a href="#">
+													<img src="img/blog/doc2.png">
+													文档2
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">
+										<img src="img/blog/drop1.png">
+										<img src="img/blog/file3.png">
+										文件三</a>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#"><img src="img/blog/store.png">个人收藏</a></li>
+							<li><a href="#"><img src="img/blog/share.png">我的分享</a></li>
+							<li><a href="#"><img src="img/blog/store.png">图库</a></li>							
+							<li><a href="#"><img src="img/blog/store.png">成长记录</a></li>					
+							<li><a href="#"><img src="img/blog/account.png">账户信息</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="right">
+					<div class="headTop">
+						<ul>
+							<li>C站/</li>
+							<li>个人报表/</li>
+							<li>文件一/</li>
+							<li>文档一</li>
+						</ul>
+					</div>
+					<main>
+						<div class="contain2">
+							<section class="check">
+								<div class="check1 col-lg-2">
+									查询项
+									<select>
+										<option>第一项</option>
+									</select>
+								</div>
+								<div class="trade col-lg-2" style="width: 150px;">
+									买方
+									<select>
+										<option>小A</option>
+									</select>
+									卖方
+									<select>
+										<option>
+											小C
+										</option>
+									</select>
+								</div>
+								<div class="tradeDetail col-lg-5">
+									日期 
+									<select>
+										<option></option>
+									</select>
+									总耗时
+										<select>
+											<option>8天</option>
+										</select>
+										人数
+										<select>
+											<option>
+												10人
+											</option>
+										</select>
+										成交项
+										<select>
+											<option>
+												10项
+											</option>
+										</select>
+								</div>
+								<div class="col-lg-1">
+									<button type="button" class="btn btn-primary ">搜索</button>
+								</div>
+							</section>
+							
+							<section class="timetable">
+								<div class="col-lg-1 col-md-1 col-sm-1">
+									<div class="go1"></div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-4 col-sm-3 ">
+									<div class="time1">
+										<p>11:00 am</p>
+										<p><small>￥</small><big>1300</big></p>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1">
+									<div class="go2"></div>
+								</div>
+								<div class="col-lg-2 col-md-1">
+									<div class="history">
+									<img src="img/history.png">
+									<span>历史查询</span>
+									</div>
+								</div>
+							</section>
+							<section class="statistic" style="width: 890px;">
+								<p>2016年4月份统计</p>
+								<div class="col-lg-3 green box">
+									<div class="boxText">
+										<h6>1232</h6>
+										<p>成交量:120</p>
+									</div>
+									<div class="greenbx"></div>
+								</div>
+								<div class="col-lg-3 blue box">
+									<div class="boxText">
+										<h6>1232</h6>
+										<p>成交量:120</p>
+									</div>
+									<div class="bluebx"></div>
+								</div>
+								<div class="col-lg-3 red box">
+									<div class="boxText">
+										<h6>1232</h6>
+										<p>成交量:120</p>
+									</div>
+									<div class="redbx"></div>
+								</div>
+								<div class="col-lg-3 yellow box">
+									<div class="boxText">
+										<h6>1232</h6>
+										<p>成交量:120</p>
+									</div>
+									<div class="yellowbx"></div>
+								</div>
+							</section>
+							
+							<section class=" firstPro">
+								<div class="proLf " >
+									<div class="panel panel-default">
+									<div class="panel-heading">
+										第一组项目
+									</div>
+									<div class="panel-body">
+										<div class="panel_box">
+											<div class="box_table">
+												<ul>
+													<li class="active boxnav"><a href="#">项目一</a></li>
+													<li class="boxnav"><a href="#">项目一</a></li>
+													<li class="boxnav"><a href="#">项目一</a></li>
+													<li class="boxnav"><a href="#">项目一</a></li>
+													<li class="boxnav"><a href="#">项目一</a></li>
+												</ul>
+												<div class="box2">
+													<table class="table-condensed">
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+													<tr>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+														<td>购买材料</td>
+													</tr>
+												</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								</div>
+								<div class="proRg">
+									<div class="panel panel-default">
+									<div class="panel-heading">
+										第一组项目
+									</div>
+									<div class="panel-body">
+										<div class="box3">
+											<div class="title3">
+												<h5>标题</h5>
+												<p>项目报表三</p>
+											</div>
+											<div class="box3_left">
+												<h5>价格</h5>
+												<p>￥158</p>
+											</div>
+											<div class="box3_right">
+												<h5>负责人</h5>
+												<p>小A</p>
+											</div>
+											<div class="box3_content">
+												<h5>详细描述</h5>
+												<p>该项目负责人是.....</p>
+											</div>
+											<div class="footer">
+												<input type="checkbox" />遵守保密协议
+												<button type="button" class="btn btn-primary">搜索</button>
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+								</div>
+							</section>
+							<div class="row1">
+								<section class="calendar" >
+								<div class="panel panel-default" style="width: 350px;">
+									<div class="panel-heading">
+										日历
+									</div>
+									<div class="panel-body">
+										
+									</div>
+									
+								</div>
+							</section>
+							<section class="List " >
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										汽车行业排行榜
+									</div>
+									<div class="panel-body">
+										<table class="table-hover">
+											<tr>
+												<th>排名</th>
+												<th>品牌</th>
+												<th>搜索指数</th>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-danger" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 80%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-warning" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 70%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-success" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 60%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-info" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 50%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-info" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 40%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-info" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 30%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-info" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 20%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td>大众</td>
+												<td>
+													<div class="tdProgress">
+														<span >48912001</span>
+													<div class="progress">
+														<div class="progress-bar progress-bar-info" role="progressbar" aria-valvemin="0"
+															aria-valuemax="100" style="width: 20%;">
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+									
+								</div>
+									
+							</section>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

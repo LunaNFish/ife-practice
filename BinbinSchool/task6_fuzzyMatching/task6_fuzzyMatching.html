@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 400px;
+				margin: 0 auto;
+			}
+			.input-box{
+				display: inline-block;
+				margin-bottom: 5px;
+			}
+			.output-box{
+				display: inline-block;
+				
+			}
+			.search-box{
+				display: inline-block;
+				
+			}
+			big{
+				color: red;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="box">
+			<div class="input-box">
+				<textarea id="num_input" rows="10" cols="39" >很好 好 哈哈哈 狠狠很好</textarea>
+				<div class="search-box">
+					<input id="search" value="好"/>
+					<button id="sort-li" onclick="srch()">搜索</button>
+				</div>
+			</div>
+			<div class="output-box">
+				搜索结果：
+				<p id="outp"></p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			function srch(){
+				var txtarea = new Array(), str, txt;
+				var reg = new RegExp('\\+|-|\\*|/| |\\n|　|,|，');
+				str = document.getElementById("num_input").value;
+				//num = str.split(/\+|-|\*|\//);
+				txtarea= str.split(reg);
+				txt =  document.getElementById("search").value;
+				//引用的txtarea的类型是对象，应该用JSON.stringify()将其转化为string类型
+				var txtarea = JSON.stringify(txtarea);
+				//[\u4E00-\u9FA5\uF900-\uFA2D]，匹配中文，韩文和日文
+				var reg2 = new RegExp('(\\w|[\\u4E00-\\u9FA5\\uF900-\\uFA2D])*' +txt+'(\\w|[\\u4E00-\\u9FA5\\uF900-\\uFA2D])*','gim');
+				var output = txtarea.match(reg2);
+				var outputline = document.getElementById("outp");
+				outputline.innerText = output;
+				//全局替换
+				var txt2 = "<big>" + txt + "</big>";
+				var reg = "/" + txt + "/g";
+				outputline.innerHTML = outputline.innerHTML.replace(eval(reg),txt2);
+			}
+			
+		</script>
+	</body>
+</html>

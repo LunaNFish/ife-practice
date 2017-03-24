@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.root{
+		   		
+			}
+			.node{
+				border:1px dashed #c9c9c9;
+				display: flex;
+				flex-flow:row wrap;
+				justify-content: space-around;
+				padding: 10px 10px;
+				flex-grow:1;
+				border-radius: 8px;
+				font-size: 10px;
+				
+			}
+			.node p{
+				width: 19px;
+			}
+			.left,.middle{
+				margin-right: 9px;
+			}
+			.input-box{
+				margin-top: 50px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 450px;
+				line-height: 60px;
+			}
+			button{
+				width: 100px;
+				height: 26px;
+				border: 0;
+				border-radius: 3px;
+				color: white;
+				font-family: "黑体";
+				font-size: 16px;
+				background-color:#CC7680;
+			}
+			#breadquery{
+				background-color:#43B29F;
+			}
+			input{
+				border-radius: 3px;
+				border: 1px solid #C0C0C0;
+				height: 26px;
+				padding-left: 10px;
+			}
+			#delete{
+				background-color:#43B29F;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="node root" id="root">
+			图书馆
+			<div class="node node-1 left">
+				 中文类 
+				<div class="node node-2 left">
+					 计算机类 
+					<div class="node node-3 left">
+						 编程语言类 
+					</div>
+					<div class="node node-3 middle" id="soft">
+						 应用软件类 
+					</div>
+					<div class="node node-3 middle">
+						 手机开发类 
+					</div>
+					<div class="node node-3 right">
+						 其他类 
+					</div>
+				</div>
+				<div class="node node-2 middle">
+					 影视类 
+				</div>
+				<div class="node node-2 right">
+					 文学类 
+					<div class="node node-3 left">
+						 散文类 
+					</div>
+					<div class="node node-3 right">
+						 记叙文类 	
+					</div>
+				</div>
+			</div>
+			<div class="node node-1 middle">
+					 英文类 
+					<div class="node node-2 left">
+						 学习材料类 
+					<div class="node node-3 left">
+						 听力类 
+					</div>
+					<div class="node node-3 middle">
+						 阅读类 
+					<div class="node node-3 left">
+						 雅思类 
+						<div class=" node node-4">
+						选择题 
+						</div>
+					</div>
+					<div class="node node-3 right">
+						 托福类 
+					</div>
+					</div>
+					<div class="node node-3 right">
+						 作文类 
+					</div>
+				</div>
+				<div class=" node node-2 right" id="dic">
+						 字典类 
+				</div>
+			</div>
+			<div class="node node-1 right">
+				其他语种
+			</div>
+		</div>
+		<div class="input-box" id="caozuo">
+			<input type="text" id="neirong">
+			<button class="query" id="query" >
+				深度查询
+			</button>
+			<button class="query" id="breadquery" >
+				广度查询
+			</button>
+			<input type="text" id="add_content">
+			<button class="query" id="add" >
+				添加
+			</button>
+			<button class="query" id="delete" >
+				删除
+			</button>
+		</div>
+
+		<script src="../js/task9_toggle.js"></script>
+	</body>
+</html>
