@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		body{
+			font-family: "微软雅黑";
+		}
+		#user{
+			border-radius: 3px;
+			border: 2px solid #CCCCCC;
+		}
+			#tips{
+				color: #CCCCCC;
+				font-size: 13px;
+				margin-left: 65px;
+			}
+			#btn{
+				background-color: #337AB7;
+				border: 0;
+				color: white;
+				width: 50px;
+				height: 22px;
+				border-radius: 3px;
+				margin-left: 10px;
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+	
+	<body>
+		用户名：<input type="text" id="user"/><button id="btn">验证</button><br />
+		<span id="tips">必填，长度为4~16个字符</span>
+		
+		<script type="text/javascript">
+			var $ = function (id){
+				return document.getElementById(id);
+			}
+			
+			$("btn").onclick= check;
+			
+			function method(){
+				//res为实际上字符长度
+				var res =0;
+				var txt = $("user").value;
+				var len = txt.length;
+				for(var i = 0; i < len; i++){
+					//使用 String.charCodeAt() 拿到字符编码值
+					var codeVal = txt.charCodeAt(i);
+					if (codeVal <= 0xFF){
+						res += 1;
+					}
+					//判断32bit编码的中文字符
+					else if(codeVal >=0xD800&& codeVal <= 0xDBFF){
+						res +=2;
+						i++;
+					}
+					else{
+						res += 2;
+					}
+				}
+				return res;
+			}
+			
+			function check(){
+				var strlen = method();
+				if(strlen >= 4 && strlen <= 16){
+					$("tips").innerText = "名称格式正确";
+					$("user").style.borderColor = "#4CAE4C";
+					$("tips").style.color = "#4CAE4C";
+					
+				}
+				else if(strlen == 0){
+					$("tips").innerText = "姓名不能为空";
+					$("user").style.borderColor = "red";
+					$("tips").style.color = "red";
+				}
+				else{
+					$("tips").innerText = "姓名长度为4~16个字符";
+					$("user").style.borderColor = "red";
+					$("tips").style.color = "red";
+				}
+			}
+			
+		</script>
+	</body>
+</html>
