@@ -1,0 +1,13 @@
+需要动态监控控件的状态
+用：
+for(var i=0;i<length;i++)
+{	
+	addEventListener("click",function(e){...}
+}
+
+如果不需要
+则：
+for(var i=0;i<length;i++)
+{
+	if(.onclick){...}
+}
