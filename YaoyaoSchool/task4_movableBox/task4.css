@@ -1,0 +1,52 @@
+table{
+			border-spacing: 0px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		th{
+			border: none;
+			width: 50px;
+			height: 50px;
+			font-family: "微软雅黑";
+			padding: 0;
+		}
+		td{
+				border: 1px solid #DCDCDC;
+				width: 50px;
+				height: 50px;
+				box-sizing: border-box;
+		}
+		#box{
+			height: 50px;
+			width: 50px;
+			position: absolute;
+			z-index: 1;
+			
+			display: flex;
+			
+		}
+		#head{
+			height: 15px;
+			background-color: #E8504F;
+			
+		}
+		#body{
+			height: 35px;
+			width: 50px;
+			background-color: #46B8DA;
+			order: 2;
+		}
+		.input-box{
+			position: absolute;
+			top:600px;
+			left: 150px;
+		}
+		button{
+			border: 0;
+			background-color: #269ABC;
+			color: white;
+			border-radius: 5px;
+			width: 49px;
+			height: 25px;
+		}
