@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--图标来自http://glyphicons.com/-->
+		<!--bootstrap图标列表：http://www.runoob.com/try/demo_source/bootstrap3-glyph-icons.htm-->
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="../../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="../../bootstrap-3.3.4-dist/bootstrap-3.3.4-dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet"/>
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<style>
+			table{
+				border:1px solid #D6D6D6;
+				font-family: "微软雅黑";
+			}
+			th{
+				background-color: #5B5B5B;
+				color: white;
+				width: 90px;
+				text-align: center;
+				height: 40px;
+			}
+			td{
+				text-align: center;
+				width: 90px;
+				height: 30px;
+			}
+			span{
+				color: white;
+			}
+			
+		</style>
+	</head>
+	<body>
+<span class="glyphicon glyphicon-align-left">ss</span>
+
+		<table border="1px" cellspacing="0" id="b">
+			<thead>
+				<tr>
+				<th>
+					姓名
+				</th>
+				<th >
+					语文
+					<i class="glyphicon glyphicon-arrow-up" id="chinup"></i>
+					<i class="glyphicon glyphicon-arrow-down" id="chindown"></i>
+				</th>
+				<th>
+					数学
+					<i class="glyphicon glyphicon-arrow-up" id="mathup"></i>
+					<i class="glyphicon glyphicon-arrow-down" id="mathdown"></i>
+				</th>
+				<th>
+					英语
+					<i class="glyphicon glyphicon-arrow-up" id="engup"></i>
+					<i class="glyphicon glyphicon-arrow-down" id="engdown"></i>
+				</th>
+				<th>
+					总分
+					<i class="glyphicon glyphicon-arrow-up" id="totalup"></i>
+					<i class="glyphicon glyphicon-arrow-down" id="totaldown"></i>
+				</th>
+			</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<script type="text/javascript">
+			var data = [
+				 ["小明",80,90,70,240],
+			     ["小红",90,60,90,240],
+			     ["小亮",60,100,70,230]
+				];
+			var $ = function(id){
+				return document.getElementById(id);
+			}
+			var $$ = function (tagname){
+				return document.getElementsByTagName(tagname);
+			}
+			var m;
+			var icon = $$("i");
+			var table = $$("table");
+			var tr = $$("tr");
+			var b = $("b");
+		
+			
+			//升序
+			function sortUp(a,b){
+				return b[m]-a[m];
+			}
+			
+			//降序
+			function sortDown(a,b){
+				return a[m]-b[m];
+			}
+			
+			function showTable(){
+				$$("tbody")[0].innerHTML = "";
+				for (var i=0;i<3;i++){
+		        var trs = document.createElement("tr");
+		        for (var j=0;j<5;j++){
+		            var tds = document.createElement("td");
+		            tds.innerText = data[i][j];
+		            trs.appendChild(tds);
+		        }
+		        document.getElementsByTagName("tbody")[0].appendChild(trs);
+				}
+
+			}
+			function childArray(id){
+				var reg = new RegExp("up|down");
+				var name = id.replace(/up|down/,"");
+				var dir = reg.exec(id);
+				switch(name){
+					case "chin":
+						m = 1;
+						if(dir == "down"){
+							data.sort(sortUp);
+						}else{
+							data.sort(sortDown);
+						}
+						showTable();
+						break;
+					case "math":
+						m = 2;					
+						if(dir == "down"){
+							data.sort(sortUp);
+						}else{
+							data.sort(sortDown);
+						}
+						showTable();
+						break;
+					case "eng":
+						m = 3;
+						if(dir == "down"){
+							data.sort(sortUp);
+						}else{
+							data.sort(sortDown);
+						}
+						showTable();
+						break;
+					case "total":
+						m=4;
+						if(dir == "down"){
+							data.sort(sortUp);
+						}else{
+							data.sort(sortDown);
+						}
+						showTable();
+						break;
+				}
+			}
+			
+			table[0].addEventListener("click",function(e){
+					for(var i=0; i<icon.length; i++ ){
+						icon[i].style.color = "white";
+					}
+				var target = e.target;
+				if(target.tagName == "i"){
+					target.style.color="red";
+				}
+				childArray(target.id);
+			})
+			
+			window.onload = function () {
+			    showTable();
+			}
+					
+
+		</script>
+	</body>
+</html>
