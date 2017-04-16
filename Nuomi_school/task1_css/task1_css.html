@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			@keyframes streamer {
+			    0%  {
+			        background-position: 0 0;
+			    }
+			    100% {
+			        background-position: -100% 0;
+			    }
+			}
+			.box{
+				height: 380px;
+				width: 400px;
+				background: url(img/IMG_3508.JPG) no-repeat;
+				z-index: 1;
+				position: relative;
+			}
+			.box:after{
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				filter: blur(5px);
+				opacity: 0;
+				background: url(img/IMG_3508.JPG) no-repeat;
+				-webkit-filter: blur(5px); 
+				-webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+			}
+			.contain{
+				position: absolute;
+				width: 80px;
+				height: 100px;
+				margin: auto auto;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				opacity: 0;
+				z-index: 0;
+				-webkit-transition: opacity 0.5s, -webkit-transform 0.1s;
+			}
+			.contain:before,.contain:after{
+				position: absolute;
+				top: -10px;
+				right: -50px;
+				bottom: 30px;
+				left: -50px;
+				content: '';
+				opacity: 0;
+				-webkit-transition: opacity 1s, -webkit-transform 1s;
+				transition: opacity 1s, transform 1s;
+			}
+			.contain:before{
+				border-top: 1px solid #fff;
+				border-bottom: 1px solid #fff;
+				-webkit-transform: scale(0,1);
+				transform: scale(0,1);
+			}
+			.contain:after{
+				border-right: 1px solid #fff;
+				border-left: 1px solid #fff;
+				-webkit-transform: scale(1,0);
+				transform: scale(1,0);
+			}
+			p{
+				background-image: -webkit-linear-gradient(left,blue,red 25%,green 50%,red 75%,blue 100%);
+				-webkit-background-clip:text;
+				color: transparent;
+				background-size: 200% 100%;
+				animation: streamer 5s infinite linear;
+				font-weight: 800;
+				font-family: "微软雅黑";
+				
+				
+			}
+			.box:hover:after{
+				opacity: 1;
+			}
+			.box:hover .contain{
+				z-index:2;
+				opacity: 1;
+			}
+			.box:hover .contain:before,.contain:after{
+				opacity: 1;
+				-webkit-transform: scale(1,1);
+				transform: scale(1,1);
+			}
+		
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="contain">
+				<p>秋日风萧萧</p>
+			</div>
+		</div>
+	</body>
+</html>
